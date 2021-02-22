@@ -44,11 +44,7 @@ public class CsvServiceImpl implements CsvService {
 		
 		
 	}
-	@Override
-	public Optional<Model> getDetailsById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 
 	}

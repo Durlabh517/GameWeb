@@ -12,7 +12,7 @@ public interface CsvService {
 	void store(MultipartFile csvfile);
 	 
 	List<Model> getAll();
-	Optional<Model> getDetailsById(String id);
+
 	
 
 }
