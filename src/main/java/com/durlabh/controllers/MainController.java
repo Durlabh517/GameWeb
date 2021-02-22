@@ -26,7 +26,7 @@ public class MainController {
 
 	  @RequestMapping("/edit/{id}")
 	    public String edit(@PathVariable String id, ModelMap modelMap) {
-	        modelMap.addAttribute("product", modelRep.findById(id).get());
+	        modelMap.addAttribute("edit", modelRep.findById(id).get());
 	        return "edit";
 	    }
 	 @RequestMapping("/update-player")
