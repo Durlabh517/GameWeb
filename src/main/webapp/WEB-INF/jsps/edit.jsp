@@ -13,9 +13,9 @@
  <form action="/update-player">
                     <div class="form-group">
                         <label for="email">Product Name:</label>
-                        <input type="text" class="form-control" name="prodName" th:value="${product.prodName}" />
+                        <input type="text" class="form-control" name="edtName" />
                     </div>
-                      <input type="hidden" name="id" value="${product.id}" />
+                      <input type="hidden" name="id" value="${edit.id}" />
                     <button type="submit" class="btn btn-success">Save</button>
                 </form>
 </body>

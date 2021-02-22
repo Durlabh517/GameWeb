@@ -23,30 +23,18 @@ public class MainController {
 	CsvServiceImpl csvFileServices;
 	@Autowired
 	ModelRepository modelRep;
-	
-//	@RequestMapping("/{id}")
-//	public String displayDetails( @PathVariable(value="id")String id, ModelMap modelMap){
-//		//Optional<Model> detail =  csvFileServices.getDetailsById(id);
-//		Optional<Model> detail = modelRep.getOne(id);
-//		
-//   
-//		modelMap.addAttribute("details", detail);
-//		System.out.println("yeass");
-//		return "/WEB-INF/jsps/displayDetails.jsp";
-	
-	
-//}
+
 	  @RequestMapping("/edit/{id}")
 	    public String edit(@PathVariable String id, ModelMap modelMap) {
 	        modelMap.addAttribute("product", modelRep.findById(id).get());
 	        return "edit";
 	    }
 	 @RequestMapping("/update-player")
-	    public String update(@RequestParam String id, @RequestParam Long prodName) {
-	        Optional<Model> product = modelRep.findById(id);
-	        product.get().setGoal(prodName);
+	    public String update(@RequestParam String id, @RequestParam Long editName) {
+	        Optional<Model> edit = modelRep.findById(id);
+	        edit.get().setGoal(editName);
 	     
-	        modelRep.save(product.get());
+	        modelRep.save(edit.get());
 
 	        return "/WEB-INF/jsps/displayPlayers.jsp" ;
 	    }
