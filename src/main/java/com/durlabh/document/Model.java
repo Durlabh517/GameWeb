@@ -1,44 +1,91 @@
 package com.durlabh.document;
 
-public class Model {
-	private Long ranking;
-	private Long seasonid;
-	private String seasonName;
-	private Long tournamentId;
-	private Long tournamentRegionId;
-	private String tournamentRegionCode;
-	private String regionCode;
-	private String tournamentName;
-	private String tournamentShortName;
-	private String firstName;
-	private String lastName;
-	private Long  playerId;
-	private boolean isActive;
-	private boolean isOpta;
-	private Long teamId;
-	private String teamName;
-	private String playedPositions;
-	private Long age;
-	private Long height;
-	private Long weight;
-	private String positionText;
-	private Long apps;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.opencsv.bean.CsvBindByName;
+
+@Document(collection="bet")
+public class Model {
+    @Id
+	private String id;
+	@CsvBindByName
+	private Long ranking;
+	@CsvBindByName
+	private Long seasonid;
+	@CsvBindByName
+	private String seasonName;
+	@CsvBindByName
+	private Long tournamentId;
+	@CsvBindByName
+	private Long tournamentRegionId;
+	@CsvBindByName
+	private String tournamentRegionCode;
+	@CsvBindByName
+	private String regionCode;
+	@CsvBindByName
+	private String tournamentName;
+	@CsvBindByName
+	private String tournamentShortName;
+	@CsvBindByName
+	private String firstName;
+	@CsvBindByName
+	private String lastName;
+	
+	@CsvBindByName
+	private Long  playerId;
+	@CsvBindByName
+	private boolean isActive;
+	@CsvBindByName
+	private boolean isOpta;
+	@CsvBindByName
+	private Long teamId;
+	@CsvBindByName
+	private String teamName;
+	@CsvBindByName
+	private String playedPositions;
+	@CsvBindByName
+	private Long age;
+	@CsvBindByName
+	private Long height;
+	@CsvBindByName
+	private Long weight;
+	@CsvBindByName
+	private String positionText;
+	@CsvBindByName
+	private Long apps;
+	@CsvBindByName
 	private Long subOn;
+	@CsvBindByName
 	private Long minsPlayed;
+	@CsvBindByName
 	private double rating;
+	@CsvBindByName
 	private Long goal;
+	@CsvBindByName
 	private Long assistTotal;
+	@CsvBindByName
 	private  Long yellowCard;
+	@CsvBindByName
 	private Long redCard;
+	@CsvBindByName
 	private double shotsPerGame;
+	@CsvBindByName
 	private double serialWonPerGame;
+	@CsvBindByName
 	private Long manOfTheMatch;
+	@CsvBindByName
     private String name;
+	@CsvBindByName
     private boolean isManOfTheMatch;
+	@CsvBindByName
     private String playedPostionsShort;
+	@CsvBindByName
     private double passSuccess;
-	public Model(Long ranking, Long seasonid, String seasonName, Long tournamentId, Long tournamentRegionId,
+    public Model() {
+    	
+    }
+	public Model(String id,Long ranking, Long seasonid, String seasonName, Long tournamentId, Long tournamentRegionId,
 			String tournamentRegionCode, String regionCode, String tournamentName, String tournamentShortName,
 			String firstName, String lastName, Long playerId, boolean isActive, boolean isOpta, Long teamId,
 			String teamName, String playedPositions, Long age, Long height, Long weight, String positionText, Long apps,
@@ -46,6 +93,7 @@ public class Model {
 			double shotsPerGame, double serialWonPerGame, Long manOfTheMatch, String name, boolean isManOfTheMatch,
 			String playedPostionsShort, double passSuccess) {
 		super();
+		this.id=id;
 		this.ranking = ranking;
 		this.seasonid = seasonid;
 		this.seasonName = seasonName;
@@ -82,6 +130,12 @@ public class Model {
 		this.isManOfTheMatch = isManOfTheMatch;
 		this.playedPostionsShort = playedPostionsShort;
 		this.passSuccess = passSuccess;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public Long getRanking() {
 		return ranking;
@@ -301,18 +355,18 @@ public class Model {
 	}
 	@Override
 	public String toString() {
-		return "Model [ranking=" + ranking + ", seasonid=" + seasonid + ", seasonName=" + seasonName + ", tournamentId="
-				+ tournamentId + ", tournamentRegionId=" + tournamentRegionId + ", tournamentRegionCode="
-				+ tournamentRegionCode + ", regionCode=" + regionCode + ", tournamentName=" + tournamentName
-				+ ", tournamentShortName=" + tournamentShortName + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", playerId=" + playerId + ", isActive=" + isActive + ", isOpta=" + isOpta + ", teamId=" + teamId
-				+ ", teamName=" + teamName + ", playedPositions=" + playedPositions + ", age=" + age + ", height="
-				+ height + ", weight=" + weight + ", positionText=" + positionText + ", apps=" + apps + ", subOn="
-				+ subOn + ", minsPlayed=" + minsPlayed + ", rating=" + rating + ", goal=" + goal + ", assistTotal="
-				+ assistTotal + ", yellowCard=" + yellowCard + ", redCard=" + redCard + ", shotsPerGame=" + shotsPerGame
-				+ ", serialWonPerGame=" + serialWonPerGame + ", manOfTheMatch=" + manOfTheMatch + ", name=" + name
-				+ ", isManOfTheMatch=" + isManOfTheMatch + ", playedPostionsShort=" + playedPostionsShort
-				+ ", passSuccess=" + passSuccess + "]";
+		return "Model [id=" + id + ", ranking=" + ranking + ", seasonid=" + seasonid + ", seasonName=" + seasonName
+				+ ", tournamentId=" + tournamentId + ", tournamentRegionId=" + tournamentRegionId
+				+ ", tournamentRegionCode=" + tournamentRegionCode + ", regionCode=" + regionCode + ", tournamentName="
+				+ tournamentName + ", tournamentShortName=" + tournamentShortName + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", playerId=" + playerId + ", isActive=" + isActive + ", isOpta=" + isOpta
+				+ ", teamId=" + teamId + ", teamName=" + teamName + ", playedPositions=" + playedPositions + ", age="
+				+ age + ", height=" + height + ", weight=" + weight + ", positionText=" + positionText + ", apps="
+				+ apps + ", subOn=" + subOn + ", minsPlayed=" + minsPlayed + ", rating=" + rating + ", goal=" + goal
+				+ ", assistTotal=" + assistTotal + ", yellowCard=" + yellowCard + ", redCard=" + redCard
+				+ ", shotsPerGame=" + shotsPerGame + ", serialWonPerGame=" + serialWonPerGame + ", manOfTheMatch="
+				+ manOfTheMatch + ", name=" + name + ", isManOfTheMatch=" + isManOfTheMatch + ", playedPostionsShort="
+				+ playedPostionsShort + ", passSuccess=" + passSuccess + "]";
 	}
 	
 
